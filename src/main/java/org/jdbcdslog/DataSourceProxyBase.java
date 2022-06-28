@@ -267,12 +267,12 @@ public class DataSourceProxyBase implements Serializable {
         invokeTargetSetMethod("setDatabase", p, String.class);
     }
 
-    public boolean isWrapperFor(Class iface) throws SQLException {
-        return false;
-    }
+    // public boolean isWrapperFor(Class iface) throws SQLException {
+    //     return false;
+    // }
 
-    public Object unwrap(Class iface) throws SQLException {
-        return null;
-    }
+    // public Object unwrap(Class iface) throws SQLException {
+    //     return null;
+    // }
 
 }

@@ -3,11 +3,11 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <version>8</version>
     </parent>
     <groupId>com.googlecode.usc</groupId>
     <artifactId>jdbcdslog</artifactId>
-    <version>1.0.6.3-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>jdbcdslog</name>
     <url>http://code.google.com/p/jdbcdslog-exp/</url>
@@ -56,14 +56,15 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <JAVA_1_5_HOME>C:\Progra~1\Java\jdk1.5.0_22</JAVA_1_5_HOME>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.5.10</version>
+            <version>[1.7,)</version>
             <scope>compile</scope>
         </dependency>
 
@@ -71,7 +72,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.10</version>
+            <version>[1.7,)</version>
             <scope>test</scope>
         </dependency>
 
@@ -120,17 +121,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <fork>true</fork>
-                    <executable>${JAVA_1_5_HOME}/bin/javac</executable>
-                    <compilerVersion>1.5</compilerVersion>
-                </configuration>
+                <version>3.8.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <id>compile</id>
+                    </execution>
+                </executions>
             </plugin>
 
-            <plugin>
+            <!-- <plugin>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.0-beta-9</version>
                 <configuration>
@@ -138,7 +140,7 @@
                     <branchBase>https://jdbcdslog-exp.googlecode.com/svn/branches/</branchBase>
                     <mavenExecutorId>forked-path</mavenExecutorId>
                 </configuration>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
